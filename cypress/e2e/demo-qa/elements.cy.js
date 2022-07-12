@@ -122,6 +122,10 @@ context("Elements Page", () => {
     });
 
     it("Web table scenario 2", () => {
+
+      // webTablesPage.deleteAll.each(element=>{
+      //   cy.wrap(element).should("be.visible").click();   //Only clicks once and throws an error
+      // })  
       webTablesPage.deleteFirst.should("be.visible").click();
       webTablesPage.deleteSecond.should("be.visible").click();
       webTablesPage.deleteThird.should("be.visible").click();
@@ -139,14 +143,13 @@ context("Elements Page", () => {
       buttonsPage.visit();
     });
 
-    it.only("Buttons clicking scenario", () => {
+    it("Buttons clicking scenario", () => {
       buttonsPage.doubleClickBtn.should("be.visible").dblclick();
       buttonsPage.doubleClickMessage.should("be.visible");
       buttonsPage.rightClickBtn.should("be.visible").rightclick();
       buttonsPage.rightClickMessage.should("be.visible");
       buttonsPage.leftClick.should("be.visible").click();
       buttonsPage.dynamicClickMessage.should("be.visible");
-
 
     });
     // Create buttons clicking scenario

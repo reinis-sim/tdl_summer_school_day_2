@@ -42,9 +42,9 @@ class webTablesPage extends BasePage {
   static get deleteSecond() {
     return cy.get('#delete-record-2');
   }
-  // static get deleteAll(){
-  //   return cy.get('[title="Delete"]');
-  // }
+   static get deleteAll(){
+     return cy.get('[title="Delete"]');
+   }
 
   static get deleteThird() {
     return cy.get('#delete-record-3');
