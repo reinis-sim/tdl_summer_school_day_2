@@ -1,5 +1,7 @@
 import checkboxPage from "../../pageObjects/checkboxPage";
+import radioButtonPage from "../../pageObjects/radioButtonPage";
 import TextBoxPage from "../../pageObjects/textBoxPage";
+import webTablesPage from "../../pageObjects/webTablesPage";
 
 context("Elements Page", () => {
   context("Text box scenarios", () => {
@@ -30,14 +32,32 @@ context("Elements Page", () => {
     });
     // Create CheckBoxPage page object
     // Create checkbox scenario 1:
-    it.only("Checkbox scenario 1", () => {
-      checkboxPage.homeExpand.click();
+    it("Checkbox scenario 1", () => {
+      checkboxPage.plusButton.click();
+      checkboxPage.notes.click();
+      checkboxPage.react.click();
+      checkboxPage.angular.click();
+      checkboxPage.general.click();
+      checkboxPage.excel.click();
+      checkboxPage.checkboxResult.should("contain.text", "notes");
+      checkboxPage.checkboxResult.should("contain.text", "react");
+      checkboxPage.checkboxResult.should("contain.text", "angular");
+      checkboxPage.checkboxResult.should("contain.text", "general");
+      checkboxPage.checkboxResult.should("contain.text", "excelFile");
     // Click the "+"/expand button
     // Click Notes, React, Angular, General, Excel File.doc
     // Validate the clicked checkboxes
     });
 
+    it.only("Checkbox scenario 2", () => {
+      checkboxPage.plusButton.click();
+      checkboxPage.office.click();
+      checkboxPage.checkboxResult.should("contain.text", "general");
+      checkboxPage.checkboxResult.should("contain.text", "private");
+      checkboxPage.checkboxResult.should("contain.text", "classified");
+      checkboxPage.checkboxResult.should("contain.text", "public");
 
+    });
 
     // Create checkbox scenario 2:
     // Click expand button
@@ -46,6 +66,21 @@ context("Elements Page", () => {
   });
 
   context("Radio button scenarios", () => {
+    beforeEach(() => {
+      radioButtonPage.visit();
+    });
+
+
+    it("Radio button scenario 1", () => {
+      radioButtonPage.yesButton.click();
+      radioButtonPage.selectedResult.should("have.text","Yes");
+      radioButtonPage.impressiveButton.click();
+      radioButtonPage.selectedResult.should("have.text","Impressive");
+      radioButtonPage.noButton.should("be.visible").should("be.disabled");
+      //TODO show that it's disabled
+
+    });
+
     // Create RadioButtons page object
     // Scenario 1:
     // Click yesButton
@@ -56,6 +91,15 @@ context("Elements Page", () => {
   });
 
   context("Web tables scenarios", () => {
+    beforeEach(() => {
+      webTablesPage.visit();
+    });
+
+
+    it("Web table scenario 1", () => {
+      webTablesPage.addRecord.click();
+
+    });
     // Create WebTables page object
     // Create scenario 1:
     // Click add record button
