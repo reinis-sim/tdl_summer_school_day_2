@@ -9,9 +9,7 @@ context("Elements Page", () => {
       TextBoxPage.visit();
     });
 
-    // Create texbox scenario
-    // fill in textboxes with necessary information
-    // validate the paragraphs
+
     it("Filling in Text Boxes", () => {
       TextBoxPage.username.should("be.visible").type("Jim Jones");
       TextBoxPage.email.should("be.visible").type("Jim@gmail.com");
@@ -22,6 +20,9 @@ context("Elements Page", () => {
       TextBoxPage.emailResult.should("contain.text", "Jim@gmail.com")
       TextBoxPage.currentAddressResult.should("contain.text", "Pils iela")
       TextBoxPage.permanentAddressResult.should("contain.text", "New York")
+      // Create texbox scenario
+      // fill in textboxes with necessary information
+      // validate the paragraphs
       // add the necessary steps
     });
   });
@@ -30,8 +31,7 @@ context("Elements Page", () => {
     beforeEach(() => {
       checkboxPage.visit();
     });
-    // Create CheckBoxPage page object
-    // Create checkbox scenario 1:
+
     it("Checkbox scenario 1", () => {
       checkboxPage.plusButton.click();
       checkboxPage.notes.click();
@@ -44,6 +44,8 @@ context("Elements Page", () => {
       checkboxPage.checkboxResult.should("contain.text", "angular");
       checkboxPage.checkboxResult.should("contain.text", "general");
       checkboxPage.checkboxResult.should("contain.text", "excelFile");
+    // Create CheckBoxPage page object
+    // Create checkbox scenario 1:
     // Click the "+"/expand button
     // Click Notes, React, Angular, General, Excel File.doc
     // Validate the clicked checkboxes
@@ -57,12 +59,13 @@ context("Elements Page", () => {
       checkboxPage.checkboxResult.should("contain.text", "classified");
       checkboxPage.checkboxResult.should("contain.text", "public");
 
-    });
-
     // Create checkbox scenario 2:
     // Click expand button
     // Click Office
     // Validate the checked checkboxes
+    });
+
+
   });
 
   context("Radio button scenarios", () => {
@@ -76,11 +79,8 @@ context("Elements Page", () => {
       radioButtonPage.selectedResult.should("have.text","Yes");
       radioButtonPage.impressiveButton.click();
       radioButtonPage.selectedResult.should("have.text","Impressive");
-      radioButtonPage.noButton.should("be.visible").should("be.disabled");
-      //TODO show that it's disabled
-
-    });
-
+      radioButtonPage.noButton.should("be.visible").should("have.class", "disabled");
+ 
     // Create RadioButtons page object
     // Scenario 1:
     // Click yesButton
@@ -88,6 +88,9 @@ context("Elements Page", () => {
     // click impressiveButton
     // validate the message
     // noButton - validate that the button exists but is disabled
+
+    });
+
   });
 
   context("Web tables scenarios", () => {
@@ -108,7 +111,6 @@ context("Elements Page", () => {
       webTablesPage.searchField.should("be.visible").type("Jim");
       webTablesPage.bigTable.should("be.visible").should("contain.text", "Jim");
 
-    });
     // Create WebTables page object
     // Create scenario 1:
     // Click add record button
@@ -116,21 +118,24 @@ context("Elements Page", () => {
     // click submit button
     // search for the user based on previously added information
     // validate tha the user is visible
+    });
+
     it("Web table scenario 2", () => {
       webTablesPage.deleteFirst.should("be.visible").click();
       webTablesPage.deleteSecond.should("be.visible").click();
       webTablesPage.deleteThird.should("be.visible").click();
       webTablesPage.noData.should("be.visible").should("have.text", "No rows found");
-
-    });
     // Create Scenario 2:
     // Delete all table rows
     // Validate that we see text - No rows found
+
+    });
+
   });
 
   context("Buttons scenarios", () => {
 
-    it.only("Buttons clicking scenario", () => {
+    it("Buttons clicking scenario", () => {
 
 
     });
