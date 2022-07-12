@@ -49,7 +49,7 @@ context("Elements Page", () => {
     // Validate the clicked checkboxes
     });
 
-    it.only("Checkbox scenario 2", () => {
+    it("Checkbox scenario 2", () => {
       checkboxPage.plusButton.click();
       checkboxPage.office.click();
       checkboxPage.checkboxResult.should("contain.text", "general");
@@ -98,6 +98,15 @@ context("Elements Page", () => {
 
     it("Web table scenario 1", () => {
       webTablesPage.addRecord.click();
+      webTablesPage.firstName.should("be.visible").type("Jim");
+      webTablesPage.lastName.should("be.visible").type("Bob");
+      webTablesPage.userEmail.should("be.visible").type("JimBob@mail.com");
+      webTablesPage.age.should("be.visible").type("25");
+      webTablesPage.salary.should("be.visible").type("2500");
+      webTablesPage.department.should("be.visible").type("The best");
+      webTablesPage.submitBtn.should("be.visible").click();
+      webTablesPage.searchField.should("be.visible").type("Jim");
+      webTablesPage.bigTable.should("be.visible").should("contain.text", "Jim");
 
     });
     // Create WebTables page object
@@ -107,7 +116,13 @@ context("Elements Page", () => {
     // click submit button
     // search for the user based on previously added information
     // validate tha the user is visible
+    it.only("Web table scenario 2", () => {
+      webTablesPage.deleteFirst.should("be.visible").click();
+      webTablesPage.deleteSecond.should("be.visible").click();
+      webTablesPage.deleteThird.should("be.visible").click();
+      webTablesPage.noData.should("be.visible").should("have.text", "No rows found");
 
+    });
     // Create Scenario 2:
     // Delete all table rows
     // Validate that we see text - No rows found
