@@ -30,6 +30,7 @@ class toolTipsPage extends BasePage {
     return cy.get('#contraryTexToolTip');
   }
   
+  
 
   
 

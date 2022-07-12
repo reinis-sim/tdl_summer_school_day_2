@@ -5,8 +5,11 @@ class progressBarPage extends BasePage {
     return "/progress-bar";
   }
 
-  static get firstOption() {
-    return cy.get('.list-group-item.mt-2').contains("Cras justo odio");
+  static get startStopBtn() {
+    return cy.get('#startStopButton');
+  }
+  static get progressBar() {
+    return cy.get('[role="progressbar"]');
   }
 
   

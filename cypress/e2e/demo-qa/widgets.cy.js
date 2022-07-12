@@ -7,7 +7,7 @@ import progressBarPage from "../../pageObjects/progressBarPage";
         toolTipsPage.visit();
       });
   
-      it.only("Tooltip scenario 1", () => {
+      it("Tooltip scenario 1", () => {
         toolTipsPage.toolTipButton.trigger('mouseover');
         toolTipsPage.textField.trigger('mouseover');
         toolTipsPage.toolTipWord.trigger('mouseover');
@@ -20,14 +20,22 @@ import progressBarPage from "../../pageObjects/progressBarPage";
 // - Hover over the - "hover me button", "field", "Contrary", "1.10.32"
 // - Validate text in the tooltip/pop-up
       });
-
+    });
       context("Progress Bar", () => {
         beforeEach(() => {
           progressBarPage.visit();
         });
 
-        it("Progress bar scenario 1", () => {
-
+        it.only("Progress bar scenario 1", () => {
+            progressBarPage.startStopBtn.should("be.visible").click();
+            progressBarPage.progressBar.should("contain.text", "25%");
+            progressBarPage.startStopBtn.should("be.visible").click();
+            progressBarPage.startStopBtn.should("be.visible").click();
+            progressBarPage.progressBar.should("contain.text", "75%");
+            progressBarPage.startStopBtn.should("be.visible").click();
+            progressBarPage.startStopBtn.should("be.visible").click();
+            progressBarPage.progressBar.should("contain.text", "99%");
+            progressBarPage.startStopBtn.should("be.visible").click();
 
 // - click start
 // - stop at 25% - validate that the bar value is 25%
@@ -38,6 +46,6 @@ import progressBarPage from "../../pageObjects/progressBarPage";
         });
 
     });
-    });
+    
   });
   
