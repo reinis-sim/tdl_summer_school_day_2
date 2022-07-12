@@ -23,10 +23,10 @@ class toolTipsPage extends BasePage {
   static get popupTextField() {
     return cy.get('#textFieldToolTip');
   }
-  static get popupWord() {
+  static get popupNumbers() {
     return cy.get('#sectionToolTip');
   }
-  static get popupNumbers() {
+  static get popupWord() {
     return cy.get('#contraryTexToolTip');
   }
   

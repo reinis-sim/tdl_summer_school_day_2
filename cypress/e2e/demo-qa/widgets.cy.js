@@ -7,15 +7,15 @@ import progressBarPage from "../../pageObjects/progressBarPage";
         toolTipsPage.visit();
       });
   
-      it("Tooltip scenario 1", () => {
+      it.only("Tooltip scenario 1", () => {
         toolTipsPage.toolTipButton.trigger('mouseover');
         toolTipsPage.textField.trigger('mouseover');
         toolTipsPage.toolTipWord.trigger('mouseover');
         toolTipsPage.toolTipNumbers.trigger('mouseover');
-        toolTipsPage.popupButton.should('be.visible');
-        toolTipsPage.popupTextField.should('be.visible');
-        toolTipsPage.popupWord.should('be.visible');
-        toolTipsPage.popupNumbers.should('be.visible');
+        toolTipsPage.popupButton.should('be.visible').should("have.text", "You hovered over the Button");
+        toolTipsPage.popupTextField.should('be.visible').should("have.text", "You hovered over the text field");
+        toolTipsPage.popupWord.should('be.visible').should("have.text", "You hovered over the Contrary");
+        toolTipsPage.popupNumbers.should('be.visible').should('have.text', "You hovered over the 1.10.32");
 //toolTipsPage.textField.should("contain.text", "textFieldToolTip");        
 // - Hover over the - "hover me button", "field", "Contrary", "1.10.32"
 // - Validate text in the tooltip/pop-up
@@ -26,7 +26,7 @@ import progressBarPage from "../../pageObjects/progressBarPage";
           progressBarPage.visit();
         });
 
-        it.only("Progress bar scenario 1", () => {
+        it("Progress bar scenario 1", () => {
             progressBarPage.startStopBtn.should("be.visible").click();
             progressBarPage.progressBar.should("contain.text", "25%");
             progressBarPage.startStopBtn.should("be.visible").click();
