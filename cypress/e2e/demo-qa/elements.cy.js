@@ -116,7 +116,7 @@ context("Elements Page", () => {
     // click submit button
     // search for the user based on previously added information
     // validate tha the user is visible
-    it.only("Web table scenario 2", () => {
+    it("Web table scenario 2", () => {
       webTablesPage.deleteFirst.should("be.visible").click();
       webTablesPage.deleteSecond.should("be.visible").click();
       webTablesPage.deleteThird.should("be.visible").click();
@@ -129,6 +129,11 @@ context("Elements Page", () => {
   });
 
   context("Buttons scenarios", () => {
+
+    it.only("Buttons clicking scenario", () => {
+
+
+    });
     // Create buttons clicking scenario
     // Create Buttons page
     // Check documentation https://docs.cypress.io/api/commands/and for how to perform different types of clicking
