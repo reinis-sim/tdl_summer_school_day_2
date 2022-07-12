@@ -9,7 +9,16 @@ context("Elements Page", () => {
     // Create texbox scenario
     // fill in textboxes with necessary information
     // validate the paragraphs
-    it("Filling in Text Boxes", () => {
+    it.only("Filling in Text Boxes", () => {
+      TextBoxPage.username.should("be.visible").type("Jim Jones");
+      TextBoxPage.email.should("be.visible").type("Jim@gmail.com");
+      TextBoxPage.currentAddress.should("be.visible").type("Pils iela");  
+      TextBoxPage.permanentAddress.should("be.visible").type("New York");
+      TextBoxPage.submitButton.click();
+      TextBoxPage.usernameResult.should("contain.text", "Jim Jones")
+      TextBoxPage.emailResult.should("contain.text", "Jim@gmail.com")
+      TextBoxPage.currentAddressResult.should("contain.text", "Pils iela")
+      TextBoxPage.permanentAddressResult.should("contain.text", "New York")
       // add the necessary steps
     });
   });
