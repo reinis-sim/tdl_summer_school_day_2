@@ -1,3 +1,4 @@
+import buttonsPage from "../../pageObjects/buttonsPage";
 import checkboxPage from "../../pageObjects/checkboxPage";
 import radioButtonPage from "../../pageObjects/radioButtonPage";
 import TextBoxPage from "../../pageObjects/textBoxPage";
@@ -134,8 +135,17 @@ context("Elements Page", () => {
   });
 
   context("Buttons scenarios", () => {
+    beforeEach(() => {
+      buttonsPage.visit();
+    });
 
-    it("Buttons clicking scenario", () => {
+    it.only("Buttons clicking scenario", () => {
+      buttonsPage.doubleClickBtn.should("be.visible").dblclick();
+      buttonsPage.doubleClickMessage.should("be.visible");
+      buttonsPage.rightClickBtn.should("be.visible").rightclick();
+      buttonsPage.rightClickMessage.should("be.visible");
+      buttonsPage.leftClick.should("be.visible").click();
+      buttonsPage.dynamicClickMessage.should("be.visible");
 
 
     });
