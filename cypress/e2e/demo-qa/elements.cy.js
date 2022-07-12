@@ -1,3 +1,4 @@
+import checkboxPage from "../../pageObjects/checkboxPage";
 import TextBoxPage from "../../pageObjects/textBoxPage";
 
 context("Elements Page", () => {
@@ -9,7 +10,7 @@ context("Elements Page", () => {
     // Create texbox scenario
     // fill in textboxes with necessary information
     // validate the paragraphs
-    it.only("Filling in Text Boxes", () => {
+    it("Filling in Text Boxes", () => {
       TextBoxPage.username.should("be.visible").type("Jim Jones");
       TextBoxPage.email.should("be.visible").type("Jim@gmail.com");
       TextBoxPage.currentAddress.should("be.visible").type("Pils iela");  
@@ -24,11 +25,19 @@ context("Elements Page", () => {
   });
 
   context("Check box scenarios", () => {
+    beforeEach(() => {
+      checkboxPage.visit();
+    });
     // Create CheckBoxPage page object
     // Create checkbox scenario 1:
+    it.only("Checkbox scenario 1", () => {
+      checkboxPage.homeExpand.click();
     // Click the "+"/expand button
     // Click Notes, React, Angular, General, Excel File.doc
     // Validate the clicked checkboxes
+    });
+
+
 
     // Create checkbox scenario 2:
     // Click expand button
